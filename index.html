@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+
+    <link rel="canonical" href="https://ampbyexample.com/components/amp-list/">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+        .background {
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        .lds-ring {
+            display: inline-block;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 51px;
+            height: 51px;
+            margin: 6px;
+            border: 6px solid red;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: red transparent transparent transparent;
+        }
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<amp-state id="pagination">
+    <script type="application/json">
+        {
+            "limit": 20,
+            "offset": 2
+        }
+    </script>
+</amp-state>
+<amp-state id="items" src="https://localhost:4000/photos?_limit=20"></amp-state>
+<amp-state id="checkbox">
+    <script type="application/json">
+        {
+            "value": true
+        }
+    </script>
+</amp-state>
+
+<div class="background" id="loading" hidden>
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
+<button id="btn-swap" on="tap:loading.show,form-swap.submit">swap</button>
+
+<div class="list-wrapper">
+    <amp-list
+            id="list"
+            width="auto"
+            height="100"
+            layout="fixed-height"
+            src="https://localhost:4000/photos?_limit=20"
+            items="."
+            [src]="items"
+            noloading
+            reset-on-refresh="always">
+        <div placeholder>
+            PlaceHolder Loading...
+        </div>
+        <div fallback>
+            Can not find user list
+        </div>
+        <template type="amp-mustache">
+            <div class="title">{{title}}</div>
+            <div class="photo">
+                <amp-img src="{{thumbnailUrl}}" width="150" height="150" layout="fixed"></amp-img>
+            </div>
+        </template>
+    </amp-list>
+</div>
+
+<button id="btn-load-more" on="tap:loading.show,form-more.submit">load more</button>
+
+<form id="form-more" method="GET" target="_top"
+      action="https://localhost:4000/photos?_limit=2"
+      action-xhr="https://localhost:4000/photos?_limit=2"
+      on="submit-success: AMP.setState({
+            items: [].concat(items.concat(event.response)),
+            pagination: {
+                offset: pagination.offset + 2
+            }
+        }), loading.hide,btn-load-more.show">
+    <input type="hidden" name="_start" value="2" [value]="pagination.offset">
+</form>
+
+<form id="form-swap" method="GET" target="_top"
+      action="https://localhost:4000/photos?_limit=2"
+      action-xhr="https://localhost:4000/photos?_limit=2"
+      on="submit-success: AMP.setState({
+            items: event.response,
+            pagination: {
+                offset: pagination.offset + 2
+            }
+        }),loading.hide">
+    <input type="hidden" name="_start" value="2" [value]="pagination.offset">
+</form>
+
+</body>
+</html>
