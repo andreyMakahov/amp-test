@@ -18,6 +18,14 @@ app.get('/', function(req,res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/index2.html', function(req,res) {
+    res.sendFile(__dirname + '/index2.html');
+});
+
+app.get('/index3.html', function(req,res) {
+    res.sendFile(__dirname + '/index3.html');
+});
+
 app.get('/photos', function (req, res) {
     var query = [];
     if (Object.keys(req.query).length) {

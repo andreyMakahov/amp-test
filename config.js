@@ -6,8 +6,8 @@ module.exports = {
             key: fs.readFileSync('client-key.pem'),
             cert: fs.readFileSync('client-cert.pem'),
         },
-        httpsPort: 4000,
-        httpPort: 8000
+        httpsPort: 4001,
+        httpPort: 8002
     },
     dataSource: {
         hostname: 'jsonplaceholder.typicode.com',
