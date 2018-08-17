@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
-    <script async="" custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <style amp-custom>
         body {
             font-family: 'Georgia', Serif;
-            padding-top: 200px;
         }
         h1 {
             padding: 10px;
@@ -21,260 +22,93 @@
         p {
             padding: 15px;
         }
-
-        #header-bar {
-            z-index: 12;
-            top: 0;
-            position: fixed;
-            width: 100%;
-        }
-
-        #download {
-            width: 100%;
-            height: 100px;
-            background: orange;
-        }
-        #header {
-            width: 100%;
-            height: 100px;
-            background: green;
-        }
-        #best-match {
-            width: 100%;
-            height: 100px;
-            background: yellowgreen;
-        }
-
-        #promotion {
-            background: purple;
-            height: 100px;
-        }
-
-        #promotion-hidden {
-            visibility: hidden;
-            height: 100px;
-            position: fixed;
-            width: 100%;
-            top: 200px;
-            background: red;
-            z-index: 100000000000;
-        }
-
-        #marker-header {
-            top: 1000px;
-            height: 100%;
-            position: absolute;
-            width: 100%;
-
-        }
-        #marker-promotion {
-            top: 100px;
-            position: absolute;
-        }
     </style>
 </head>
 <body>
-<div id="marker-header">
-    <amp-position-observer
-            on="enter:shrinkAnim.start;exit:expandAnim.start"
-            layout="nodisplay">
-    </amp-position-observer>
-</div>
+<h1>These create 1P error</h1>
+<h2>amp-img fake 1p error</h2>
+<amp-img
+        src="img/sea@1x.jpg"
+        srcset="img/sea@1x.jpg 1x, img/sea@2x.jpg 2x"
+        alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget."
+        placeholder
+        width="360" height="216" layout="responsive"
+        role='img'>
+</amp-img>
 
-<div id="marker-promotion">
-    <amp-position-observer
-            on="enter:expandPromotionAnim.start;exit:shrinkPromotionAnim.start"
-            layout="nodisplay">
-    </amp-position-observer>
-</div>
+<h2>amp-anim fake 1p error</h2>
+<amp-anim
+        src=""
+        width="400" height="225" layout="responsive"
+        role='img'>
+    <amp-img placeholder
+             src="https://lh3.googleusercontent.com/qNn8GDz8Jfd-s9lt3Nc4lJeLjVyEaqGJTk1vuCUWazCmAeOBVjSWDD0SMTU7x0zhVe5UzOTKR0n-kN4SXx7yElvpKYvCMaRyS_g-jydhJ_cEVYmYPiZ_j1Y9de43mlKxU6s06uK1NAlpbSkL_046amEKOdgIACICkuWfOBwlw2hUDfjPOWskeyMrcTu8XOEerCLuVqXugG31QC345hz3lUyOlkdT9fMYVUynSERGNzHba7bXMOxKRe3izS5DIWUgJs3oeKYqA-V8iqgCvneD1jj0Ff68V_ajm4BDchQubBJU0ytXVkoWh27ngeEHubpnApOS6fcGsjPxeuMjnzAUtoTsiXz2FZi1mMrxrblJ-kZoAq1DJ95cnoqoa2CYq3BTgq2E8BRe2paNxLJ5GXBCTpNdXMpVJc6eD7ceijQyn-2qanilX-iK3ChbOq0uBHMvsdoC_LsFOu5KzbbNH71vM3DPkvDGmHJmF67Vj8sQ6uBrLnzpYlCyN4-Y9frR8zugDcqX5Q=w400-h225-no-k"
+             width="400" height="225" layout="responsive"></amp-img>
+</amp-anim>
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
+    luctus nunc ut elit cursus, et imperdiet diam vehicula.
+    Duis et nisi sed urna blandit bibendum et sit amet erat.
+</p>
 
-<div id="header-bar">
-    <div id="download">download</div>
-    <div id="header">header</div>
-</div>
-<div id="promotion-hidden">promotion-hidden</div>
+<h2>amp-pixel fake 1p error</h2>
+<amp-pixel src="https://foo.com/tracker/foo"
+           layout="nodisplay"
+           referrerpolicy="referrer-fail"></amp-pixel>
 
-<div id="best-match">best match</div>
-<div id="promotion">promotion</div>
-<div id="big-block">
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-</div>
+<h2 id="amp-iframe">IFrame fake 1p error</h2>
+<amp-iframe width=10 height=10
+            layout="responsive"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDG9YXIhKBhqclZizcSzJ0ROiE0qgVfwzI&q=Alameda,%20CA">
+</amp-iframe>
 
-<amp-animation id="shrinkAnim" layout="nodisplay">
+<h2>amp-list fake 1p error</h2>
+<amp-list layout="responsive" src= [src]="src" width="600" height="600">
+    <template type="amp-mustache">
+    </template>
+</amp-list>
+
+<h2>amp-youtube fake 1p error</h2>
+<amp-youtube width="480" height="270"
+             data-param-autoplay
+             data-videoid="dQw4w9WgXcQ">
+</amp-youtube>
+
+<h1>These create 3P error</h1>
+<h2>fake 3p error</h2>
+<amp-ad width=300 height=250
+        type="_ping_"
+        data-url='not-exist'
+        data-valid='false'
+        data-error='true'>
+</amp-ad>
+
+<amp-state id="tt">
     <script type="application/json">
         {
-            "duration": "200ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [
-                {
-                    "selector": "#header-bar",
-                    "keyframes": [
-                        { "transform": "translateY(-200px)" }
-                    ]
-                },
-                {
-                    "selector": "#header-bar #header",
-                    "keyframes": [
-                        { "transform": "translateY(100px)" }
-                    ]
-                },
-                {
-                    "selector": "#promotion-hidden",
-                    "keyframes": [
-                        { "transform": "translateY(-100px)" }
-                    ]
-                }
-            ]
+            "taggle": "language-choice-close"
         }
     </script>
-</amp-animation>
+</amp-state>
 
-<amp-animation id="expandAnim" layout="nodisplay">
+<p [text]="tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle"></p>
+
+<amp-analytics>
     <script type="application/json">
         {
-            "duration": "50ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [
-                {
-                    "selector": "#header-bar",
-                    "keyframes": [
-                        { "transform": "translateY(0)"}
-                    ]
-                },
-                {
-                    "selector": "#header-bar #header",
-                    "keyframes": [
-                        { "transform": "translateY(0)" }
-                    ]
-                },
-                {
-                    "selector": "#promotion-hidden",
-                    "keyframes": [
-                        { "transform": "translateY(0)" }
-                    ]
+            "requests": {
+                "error": "https://localhost:8000/ping?en=${errorName}&em=${errorMessage}"
+            },
+            "triggers": {
+                "userError": {
+                    "on": "user-error",
+                    "request": "error"
                 }
-            ]
+            }
         }
     </script>
-</amp-animation>
-
-<!-- ------------------------------------------- Promotion ------------------------------------------------------  -->
-
-<amp-animation id="expandPromotionAnim" layout="nodisplay">
-    <script type="application/json">
-        {
-            "duration": "1ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [
-                {
-                    "selector": "#promotion-hidden",
-                    "keyframes": [
-                        {"visibility": "hidden"}
-                    ]
-                }
-            ]
-        }
-    </script>
-</amp-animation>
-
-<amp-animation id="shrinkPromotionAnim" layout="nodisplay">
-    <script type="application/json">
-        {
-            "duration": "1ms",
-            "fill": "both",
-            "iterations": "1",
-            "direction": "alternate",
-            "animations": [
-                {
-                    "selector": "#promotion-hidden",
-                    "keyframes": [
-                        { "visibility": "visible"}
-                    ]
-                }
-            ]
-        }
-    </script>
-</amp-animation>
+</amp-analytics>
 
 </body>
 </html>
