@@ -2,51 +2,32 @@
 <html ⚡>
 <head>
     <meta charset="utf-8">
-    <title>Errors for User Error Report</title>
     <link rel="canonical" href="amps.html" >
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <style amp-custom>
-        body {
-            font-family: 'Georgia', Serif;
-        }
-        h1 {
-            padding: 10px;
-        }
-        p {
-            padding: 15px;
-        }
-    </style>
 </head>
 <body>
-<amp-state>
-    <script type="application/json">
-        {
-            "taggle": "language-choice-close"
-        }
-    </script>
-</amp-state>
+    <amp-state>
+        <script type="application/json">
+            { "test": "test" }
+        </script>
+    </amp-state>
 
-<p [text]="tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle +tt.taggle + tt.taggle"></p>
-<button on="tap:AMP.setState({tt: {taggle: 1}})">set state</button>
-
-<amp-analytics>
-    <script type="application/json">
-        {
-            "requests": {
-                "error": "https://makahov.ru/ping?en=${errorName}&em=${errorMessage}"
-            },
-            "triggers": {
-                "userError": {
-                    "on": "user-error",
-                    "request": "error"
+    <amp-analytics>
+        <script type="application/json">
+            {
+                "requests": {
+                    "error": "https://example.com/ping?en=${errorName}&em=${errorMessage}"
+                },
+                "triggers": {
+                    "userError": {
+                        "on": "user-error",
+                        "request": "error"
+                    }
                 }
             }
-        }
-    </script>
-</amp-analytics>
-
+        </script>
+    </amp-analytics>
 </body>
 </html>
