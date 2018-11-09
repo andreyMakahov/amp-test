@@ -5,6 +5,17 @@
 
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <style>
+        html, body {
+            /* Allows content to fill the viewport and go beyond the bottom */
+            height: 100%;
+
+            /* Allows you to scroll below the viewport; default value is visible */
+            overflow-y: scroll;
+
+            /* To smooth any scrolling behavior */
+            -webkit-overflow-scrolling: touch;
+        }
+
         .block {
             height: 50px;
             border: 1px solid red;
@@ -18,45 +29,35 @@
             position: fixed;
             bottom: 0;
         }
-        .container {
-            height: 100%;
 
-            /* Allows you to scroll below the viewport; default value is visible */
-            overflow-y: scroll;
-
-            /* To smooth any scrolling behavior */
-            -webkit-overflow-scrolling: touch;
-        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="block">1</div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-        <div class="block"></div>
-    </div>
+    <div class="block">1</div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
     <div class="fixed" onclick="alert('clicked')">bottom bar</div>
 </body>
 </html>
