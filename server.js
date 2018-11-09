@@ -25,6 +25,13 @@ app.get('/index2.html', function(req,res) {
 app.get('/index3.html', function(req,res) {
     res.sendFile(__dirname + '/index3.html');
 });
+app.get('/user-error.html', function(req,res) {
+    res.sendFile(__dirname + '/user-error.html');
+});
+
+app.get('/index-countdown.html', function(req,res) {
+    res.sendFile(__dirname + '/index-countdown.html');
+});
 
 app.get('/photos', function (req, res) {
     var query = [];
@@ -34,9 +41,7 @@ app.get('/photos', function (req, res) {
         }
     }
 
-    var request = https.request(Object.assign({}, config.dataSource, {
-        path: config.dataSource.path + (query.length ? '/?' + query.join('&') : ''),
-    }), function(response) {
+    var request = https.get('https://jsonplaceholder.typicode.com/photos' + (query.length ? '/?' + query.join('&') : ''), function(response) {
         var str = '';
 
         response.setEncoding('utf8');
@@ -46,11 +51,15 @@ app.get('/photos', function (req, res) {
 
         response.on('end', function () {
             var json = JSON.parse(str);
-            res.end(JSON.stringify(json.map(function(item) {
+            json = {data: {items: json}};
+            json.data.items = json.data.items.map(function(item) {
                 item.thumbnailUrl = 'https://picsum.photos/200' + '?image=' + imageCounter;
                 imageCounter++;
                 return item;
-            })));
+            })
+            setTimeout(function() {
+                res.end(JSON.stringify(json));
+            }, [2000,4000][Math.round(Math.random())]);
         });
     });
 

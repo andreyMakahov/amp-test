@@ -1,0 +1,198 @@
+<template name="msitePromotionEventHomeMid" id="tjmlgb7xm2wsh4g">
+    <script type="text/metadata">
+        {
+            lifeStyleBackgroundColor: {
+                type: "text",
+                title: '背景颜色',
+                required: false,
+            },
+            lifeStyleTitle: {
+                type: "text",
+                title: '【lifeStyle】标题',
+                required: false,
+            },
+            lifeStyleWidgetId: {
+                type: "text",
+                title: "【lifeStyle】数据Widget ID【模块开关】",
+                required: false,
+            },
+            couponAction: {
+                type: "text",
+                title: "【购物券】链接【模块开关】",
+                required: false
+            },
+            couponImage: {
+                type: "banner",
+                title: "【购物券】图片",
+                required: false
+            },
+            mustHaveTitle: {
+                type: "text",
+                title: '【Must Have】标题',
+                required: false,
+            },
+            mustHaveWidgetId: {
+                type: "text",
+                title: "【Must Have】数据Widget ID【模块开关】",
+                required: false,
+            },
+            showNewUserCoupon: {
+                type: "text",
+                title: "【新人专区】是否显示？填写任意内容展示【模块开关】",
+                required: false,
+            },
+            lowCosterTitle: {
+                type: "text",
+                title: '【Low Coster】标题',
+                required: false,
+            },
+            lowCosterWidgetId: {
+                type: "text",
+                title: "【Low Coster】数据Widget ID【模块开关】",
+                required: false,
+            },
+            inspireAction: {
+                type: "text",
+                title: "【Inspire】链接【模块开关】",
+                required: false
+            },
+            inspireImage: {
+                type: "banner",
+                title: "【Inspire】图片",
+                required: false
+            },
+        }
+    </script>
+    <section if="lifeStyleWidgetId" class="floor-category-layer-panel" style="background-color:{{lifeStyleBackgroundColor}}">
+        <p class="tie-shipping-text">{{lifeStyleTitle}}</p>
+        <amp-list credentials="include" id="floor-category-layer" layout="fill" src="https://gpsfront.aliexpress.com/getRecommendingResults.do?widget_id={{lifeStyleWidgetId}}&platform=msite&limit=6" items="." single-item=".">
+            <amp-template type="amp-mustache">
+                <ul class="floor-big-sale-list">
+                    {%#results%}
+                        {%#products.0%}
+                            <li class="floor-big-sale-item">
+                                <a href="{%productDetailUrl%}&$!{appUseData}" data-amp-replace="CLIENT_ID PAGE_VIEW_ID NAV_TIMING">
+                                    <amp-img src="{%productImage%}" class="lstyle-img" layout="responsive" width="100" height="100"></amp-img>
+                                    <span class="floor-big-sale-text-wrap flex align-center justify-center" style="background-color:#FFF">
+                                        <span class="floor-big-sale-text lstyle-item-text">{%title%}</span>
+                                    </span>
+                                </a>
+                            </li>
+                        {%/products.0%}
+                    {%/results%}
+                </ul>
+            </amp-template>
+        </amp-list>
+    </section>
+    <section if="mustHaveWidgetId" class="tie-banner-wrap" style="background-color:{{lifeStyleBackgroundColor}}">
+        <div class="tie-panel flex justify-space-between align-center">
+            <span class="tie-shipping-text">
+                {{mustHaveTitle}}
+            </span>
+        </div>
+        <div class="tie-wrap">
+            <div class="tie-panel">
+                <amp-list id="tie-item-list" credentials="include" layout="fill" src="https://gpsfront.aliexpress.com/getRecommendingResults.do?widget_id={{mustHaveWidgetId}}&platform=msite&limit=3" items="." single-item=".">
+                    <amp-template type="amp-mustache">
+                        <div class="tie-item-info-wrap brad-6">
+                            {%#results%}
+                                <div class="tie-item-info">
+                                    <a href="{%productDetailUrl%}&$!{appUseData}" data-amp-replace="CLIENT_ID PAGE_VIEW_ID NAV_TIMING">
+                                        <div class="tie-image-wrap">
+                                            <amp-img class="brad-6" src="{%productImage%}" layout="responsive" width="100" height="100"></amp-img>
+                                        </div>
+                                        <div class="tie-price-wrap">
+                                            <div class="tie-item-min-price">{%minPrice%}</div>
+                                            <div class="tie-item-ori-price">{%oriMinPrice%}</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {%/results%}
+                        </div>
+                    </amp-template>
+                </amp-list>
+            </div>
+        </div>
+    </section>
+    <section if="couponAction" class="promotion-img-wrap" style="background-color:{{lifeStyleBackgroundColor}}">
+        <a href="#unifyUrl('{{couponAction}}')$!{appUseData}" data-amp-replace="CLIENT_ID PAGE_VIEW_ID NAV_TIMING">
+            <amp-img src="{{couponImage}}" layout="responsive" width="686" height="160">
+            </amp-img>
+        </a>
+    </section>
+    <section if="showNewUserCoupon" style="background-color:{{lifeStyleBackgroundColor}}">
+        #if((!$isSignedIn || ($isSignedIn && $isZeroOrder)) && !$showNewUserCouponBefore)
+            #evaluate("#ampTag('cdp.aliexpress.com/127.htm?stopGPS=true')")
+        #end
+    </section>
+    <section if="lowCosterWidgetId" class="tie-banner-wrap" style="background-color:{{lifeStyleBackgroundColor}}">
+        <div class="tie-panel flex justify-space-between align-center">
+            <span class="tie-shipping-text">
+                {{lowCosterTitle}}
+            </span>
+        </div>
+        <div class="tie-wrap">
+            <div class="tie-panel">
+                <amp-list id="tie-item-list" credentials="include" layout="fill" src="https://gpsfront.aliexpress.com/getRecommendingResults.do?widget_id={{lowCosterWidgetId}}&platform=msite&limit=3" items="." single-item=".">
+                    <amp-template type="amp-mustache">
+                        <div class="tie-item-info-wrap brad-6">
+                            {%#results%}
+                                <div class="tie-item-info">
+                                    <a href="{%productDetailUrl%}&$!{appUseData}" data-amp-replace="CLIENT_ID PAGE_VIEW_ID NAV_TIMING">
+                                        <div class="tie-image-wrap">
+                                            <amp-img class="brad-6" src="{%productImage%}" layout="responsive" width="100" height="100"></amp-img>
+                                        </div>
+                                        <div class="tie-price-wrap">
+                                            <div class="tie-item-min-price">{%minPrice%}</div>
+                                            <div class="tie-item-ori-price">{%oriMinPrice%}</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {%/results%}
+                        </div>
+                    </amp-template>
+                </amp-list>
+            </div>
+        </div>
+    </section>
+    <section if="inspireAction" class="promotion-img-wrap" style="background-color:{{lifeStyleBackgroundColor}}">
+        <a href="#unifyUrl('{{inspireAction}}')$!{appUseData}" data-amp-replace="CLIENT_ID PAGE_VIEW_ID NAV_TIMING">
+            <amp-img src="{{inspireImage}}" layout="responsive" width="686" height="160">
+            </amp-img>
+        </a>
+    </section>
+</template>
+<!--[!release]-->
+    <script>
+        var template = $('body').find('amp-template');
+        var tpl = template.get(1).outerHTML;
+        template.remove();
+        tpl = tpl.replace(/amp-template/g,'template').replace(/{%/g,'{{').replace(/%}/g,'}}')
+        console.log(tpl)
+        $('body').find('amp-list').append(tpl);
+        $('html').get(0).setAttribute('amp',true)
+
+        var s1 = document.createElement('script');
+        s1.src = 'https://cdn.ampproject.org/v0.js';
+        s1.async = true;
+        $('body').append(s1)
+
+        var s2 = document.createElement('script');
+        s2.src = 'https://cdn.ampproject.org/v0/amp-list-0.1.js';
+        s2.async = true;
+        s2.setAttribute('custom-element', 'amp-list')
+        $('body').append(s2)
+
+        var s3 = document.createElement('script');
+        s3.src = 'https://cdn.ampproject.org/v0/amp-mustache-0.1.js';
+        s3.async = true;
+        s3.setAttribute('custom-element', 'amp-mustache')
+        $('body').append(s3)
+
+        var s4 = document.createElement('script');
+        s4.src = 'https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js';
+        s4.async = true;
+        s4.setAttribute('custom-element', 'amp-date-countdown')
+        $('body').append(s4)
+    </script>
+<!--[/!release]-->
