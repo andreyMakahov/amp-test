@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <style>
-        html, body {
+        .outside-div {
             /* Allows content to fill the viewport and go beyond the bottom */
             height: 100%;
 
@@ -29,35 +29,36 @@
             position: fixed;
             bottom: 0;
         }
-
     </style>
 </head>
-<body>
-    <div class="block">1</div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="block"></div>
-    <div class="fixed" onclick="alert('clicked')">bottom bar</div>
-</body>
+<div class="outside-div">
+    <body>
+        <div class="block">1</div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="fixed" onclick="alert('clicked')">bottom bar</div>
+    </body>
+</div>
 </html>
